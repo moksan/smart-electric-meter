@@ -1,9 +1,9 @@
-import sys
-from serial_processing import*
-from utilities import*
-from sequence import*
-from definition import*
+from definition import *
+from sequence import *
+from serial_processing import *
+from utilities import *
 
+sys.path.append("C:/Users/m.oksan/Desktop/makel/smart-electric-meter")
 
 def startInitilizationReadoutSequence(baud):
 
@@ -50,7 +50,7 @@ def startReadoutSequence(baud):
 
         elif getState() == MessagingStates.REQ_READOUT_MESSAGE:
             #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
-            commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED)
+            commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED ,24)
 
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
@@ -102,14 +102,16 @@ def startReadObisSequence(baud):
 
         elif getState() == MessagingStates.RESP_BAUD_INITILIZATION:
             #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
-            commonGetResponseMessage_b(MessagingStates.REQ_OBIS_MESSAGE)
+            commonGetResponseMessage_b(MessagingStates.REQ_OBIS_MESSAGE , 16)
 
         elif getState() == MessagingStates.REQ_OBIS_MESSAGE:
             #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
             writePort()
-            commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED)
+            #input_param.req_param = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
 
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
+            #sendrequestserver(input_param.req_param)
             break        

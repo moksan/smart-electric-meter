@@ -1,0 +1,26 @@
+# These are some examples of commonly ignored file patterns.
+# You should customize this list as applicable to your project.
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+
+# Compiled Python bytecode
+*.py[cod]
+*.pyc
+
+# VS Code files for those working on multiple tools
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# GitExtensions
+GitExtensions.settings.backup
+
+# Git Graph
+build/dependency_graph

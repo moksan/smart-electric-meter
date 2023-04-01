@@ -1,7 +1,10 @@
-from enum import Enum,auto
+from enum import Enum, auto
 
 MESSAGE_TYPE = ["mem1", "mem2", "mem3"]
-BAUDRATE =["30","31","32","33","34","35"]
+
+class input_param():
+    req_param =[]
+    BAUDRATE =[300,9600]
 
 class MessageTypes(Enum):
     mes_1   = auto()

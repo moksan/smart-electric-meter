@@ -2,6 +2,7 @@
 
 import signal
 
+
 class wdTimer(Exception):
 # usage wdTimer(timeout_in_seconds) or Watchdog() >> defaults to 2 seconds
 	def __init__(self, timeout=2):

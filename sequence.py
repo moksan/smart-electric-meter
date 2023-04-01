@@ -1,9 +1,21 @@
 import sys
 import time
-from serial_processing import*
-from utilities import*
 from threading import Thread
-from definition import*
+
+import requests
+
+from definition import *
+from serial_processing import *
+from utilities import *
+
+
+def sendrequestserver(value):
+
+    deviceID = '1' # Should be string
+    url = 'http://127.0.0.1:5000/api/'+ deviceID
+    myobj = {'consumption': 'value'} # 250 sayisi yerine okudugun kwh degerini gir
+    requests.post(url, json = myobj)
+
 
 def tryToConnectToDevice(baud):
      connected = openConnection(baud)
@@ -51,9 +63,9 @@ def commonGetResponseMessage_a(nextMessageState):
 
       return [respBuf]
 
-def commonGetResponseMessage_b(nextMessageState):
+def commonGetResponseMessage_b(nextMessageState , size):
 
-      respBuf = readPort_b()
+      respBuf = readPort_b(size)
      
       if respBuf != None:
               setState(nextMessageState)      

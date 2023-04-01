@@ -1,8 +1,10 @@
-import serial
 import select
-#import serial.rs485
 import time
-from utilities import*
+
+import serial
+
+from utilities import *
+
 
 def openConnection(baudrate):
     try:
@@ -52,16 +54,12 @@ def readPort_a():
 
         return readBytes
 
-def readPort_b():
+def readPort_b(size):
         Rs485.flushInput()
         line = []
 
-        # while True:
-        #     cc=str(Rs485.readline().decode())
-        #     print(cc)
-
         while True:
-            for c in Rs485.read(13):
+            for c in Rs485.read(size):
                 line.append(c)
                 if c == b'\x03':
                     print("Line: " + ''.join(line))
