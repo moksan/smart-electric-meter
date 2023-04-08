@@ -9,15 +9,15 @@ from message_processing import *
 from serial_processing import *
 from utilities import input_param
 
-pypreprocessor.parse()
+#pypreprocessor.parse()
 
 #endexclude
 #define PROGMODE
 
 #ifdef READOUT
-print('Readout Mode selected')
-startInitilizationReadoutSequence(input_param.BAUDRATE[0])
-startReadoutSequence(input_param.BAUDRATE[1])
+#print('Readout Mode selected')
+#startInitilizationReadoutSequence(input_param.BAUDRATE[0])
+#startReadoutSequence(input_param.BAUDRATE[1])
 #else
 #ifdef PROGMODE
 print('Program Mode selected')
@@ -28,9 +28,9 @@ t = dt.datetime.now()
 while True:
     delta = dt.datetime.now()-t
     if delta.seconds >= 60:
-        startInitilizationProgModeSequence(input_param.BAUDRATE[0])
-        startReadObisSequence(input_param.BAUDRATE[1])
-        #print("1 Min")
+        #startInitilizationProgModeSequence(input_param.BAUDRATE[0])
+        #startReadObisSequence(input_param.BAUDRATE[1])
+        print("1 Min")
         # Update 't' variable to new time
         t = dt.datetime.now()
 
