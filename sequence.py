@@ -17,7 +17,7 @@ def sendrequestserver(value, faz):
     print(bar_b)
     deviceID = '1' # Should be string
     url = 'http://www.kulturatakplatform.com/api/'+ deviceID
-    myobj = {'consumption': bar_b, 'FAZ':faz, 'timestamp':time} # 250 sayisi yerine okudugun kwh degerini gir
+    myobj = {{'consumption': bar_b}, {'FAZ':faz}, {'timestamp':time}} # 250 sayisi yerine okudugun kwh degerini gir
     requests.post(url, json = myobj)
 
 
