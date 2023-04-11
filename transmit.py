@@ -27,9 +27,10 @@ t = dt.datetime.now()
 
 while True:
     delta = dt.datetime.now()-t
-    if delta.seconds >= 60:
+    if delta.seconds >= 10:
         startInitilizationProgModeSequence(input_param.BAUDRATE[0])
         startReadObis_T_Sequence(input_param.BAUDRATE[1])
+        time.sleep(1)
         startReadObis_T1_Sequence(input_param.BAUDRATE[1])
         startReadObis_T2_Sequence(input_param.BAUDRATE[1])
         startReadObis_T3_Sequence(input_param.BAUDRATE[1])

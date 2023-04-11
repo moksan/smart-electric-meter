@@ -10,7 +10,7 @@ def openConnection(baudrate):
     try:
         global Rs485
         Rs485 = serial.Serial()
-        Rs485.port = 'COM5'						# set interface instance
+        Rs485.port = '/dev/ttyUSB0'						# set interface instance
         Rs485.baudrate = baudrate					# set baudrate to 300
         Rs485.parity = serial.PARITY_EVEN			        # set parity to even parity
         Rs485.bytesize = serial.SEVENBITS			        # number of bits per byte
