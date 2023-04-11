@@ -114,7 +114,7 @@ def startReadObis_T_Sequence(baud):
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
-            sendrequestserver(bar)
+            sendrequestserver(bar,'T')
             break        
 
 def startReadObis_T1_Sequence(baud):
@@ -145,7 +145,7 @@ def startReadObis_T1_Sequence(baud):
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
-            sendrequestserver(bar)
+            sendrequestserver(bar,'T1')
             break       
 
 def startReadObis_T2_Sequence(baud):
@@ -176,7 +176,7 @@ def startReadObis_T2_Sequence(baud):
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
-            sendrequestserver(bar)
+            sendrequestserver(bar,'T2')
             break                 
 
 def startReadObis_T3_Sequence(baud):
@@ -207,7 +207,7 @@ def startReadObis_T3_Sequence(baud):
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
-            sendrequestserver(bar)
+            sendrequestserver(bar,'T3')
             break        
 
 def startReadObis_T4_Sequence(baud):
@@ -238,5 +238,5 @@ def startReadObis_T4_Sequence(baud):
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
-            sendrequestserver(bar)
+            sendrequestserver(bar,'T4')
             break         

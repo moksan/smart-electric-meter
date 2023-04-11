@@ -1,6 +1,7 @@
 import sys
 import time
 from threading import Thread
+import datetime as dt
 
 import requests
 
@@ -9,14 +10,14 @@ from serial_processing import *
 from utilities import *
 
 
-def sendrequestserver(value):
-
+def sendrequestserver(value, faz):
+    time = dt.datetime.now()
     bar = value[0]
     bar_b =  ''.join(chr(i) for i in bar[7:17])
     print(bar_b)
     deviceID = '1' # Should be string
     url = 'http://www.kulturatakplatform.com/api/'+ deviceID
-    myobj = {'consumption': bar_b} # 250 sayisi yerine okudugun kwh degerini gir
+    myobj = {'consumption': bar_b, 'FAZ':faz, 'timestamp':time} # 250 sayisi yerine okudugun kwh degerini gir
     requests.post(url, json = myobj)
 
 
