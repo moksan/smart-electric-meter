@@ -103,7 +103,27 @@ def initilization_prog_mode(z):
         #print(command)
         time.sleep(0.25)    
 
-def writePort(): #TODO: Obis codu için dönüşüm yapılacak
+def writePort_T(): #TODO: Obis codu için dönüşüm yapılacak
         print ('sending: 1.8.0')
         Rs485.write(b'\x01\x52\x32\x02\x31\x2e\x38\x2e\x30\x28\x29\x03\x59')
         #time.sleep(0.25)    
+
+def writePort_T1(): #TODO: Obis codu için dönüşüm yapılacak
+        print ('sending: 1.8.1')
+        Rs485.write(b'\x01\x52\x32\x02\x31\x2e\x38\x2e\x31\x28\x29\x03\x59')
+        #time.sleep(0.25)  
+
+def writePort_T2(): #TODO: Obis codu için dönüşüm yapılacak
+        print ('sending: 1.8.2')
+        Rs485.write(b'\x01\x52\x32\x02\x31\x2e\x38\x2e\x32\x28\x29\x03\x59')
+        #time.sleep(0.25)  
+        
+def writePort_T3(): #TODO: Obis codu için dönüşüm yapılacak
+        print ('sending: 1.8.3')
+        Rs485.write(b'\x01\x52\x32\x02\x31\x2e\x38\x2e\x33\x28\x29\x03\x59')
+        #time.sleep(0.25)       
+                   
+def writePort_T4(): #TODO: Obis codu için dönüşüm yapılacak
+        print ('sending: 1.8.4')
+        Rs485.write(b'\x01\x52\x32\x02\x31\x2e\x38\x2e\x34\x28\x29\x03\x59')
+        #time.sleep(0.25)        

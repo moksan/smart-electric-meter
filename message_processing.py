@@ -86,7 +86,7 @@ def startInitilizationProgModeSequence(baud):
             messagingFinalized()
             break
 
-def startReadObisSequence(baud):
+def startReadObis_T_Sequence(baud):
 
     while 1:
         if getState() == MessagingStates.IDLE:
@@ -106,12 +106,137 @@ def startReadObisSequence(baud):
 
         elif getState() == MessagingStates.REQ_OBIS_MESSAGE:
             #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
-            writePort()
+            writePort_T()
             #input_param.req_param = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
-            commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            bar = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            #commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
 
         elif getState() == MessagingStates.MESSAGING_FINALIZED:
             terminate_comm_code()
             messagingFinalized()
-            #sendrequestserver(input_param.req_param)
+            sendrequestserver(bar)
             break        
+
+def startReadObis_T1_Sequence(baud):
+
+    while 1:
+        if getState() == MessagingStates.IDLE:
+            setState(MessagingStates.TRY_TO_CONNECT_TO_DEVICE)
+
+        elif getState() == MessagingStates.TRY_TO_CONNECT_TO_DEVICE:
+            tryToConnectToDevice(baud)
+            setState(MessagingStates.RESP_BAUD_INITILIZATION)
+
+        elif getState() == MessagingStates.FAULT_STATE:
+            faultState()
+            break
+
+        elif getState() == MessagingStates.RESP_BAUD_INITILIZATION:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            commonGetResponseMessage_b(MessagingStates.REQ_OBIS_MESSAGE , 16)
+
+        elif getState() == MessagingStates.REQ_OBIS_MESSAGE:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            writePort_T1()
+            #input_param.req_param = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            bar = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            #commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+
+        elif getState() == MessagingStates.MESSAGING_FINALIZED:
+            terminate_comm_code()
+            messagingFinalized()
+            sendrequestserver(bar)
+            break       
+
+def startReadObis_T2_Sequence(baud):
+
+    while 1:
+        if getState() == MessagingStates.IDLE:
+            setState(MessagingStates.TRY_TO_CONNECT_TO_DEVICE)
+
+        elif getState() == MessagingStates.TRY_TO_CONNECT_TO_DEVICE:
+            tryToConnectToDevice(baud)
+            setState(MessagingStates.RESP_BAUD_INITILIZATION)
+
+        elif getState() == MessagingStates.FAULT_STATE:
+            faultState()
+            break
+
+        elif getState() == MessagingStates.RESP_BAUD_INITILIZATION:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            commonGetResponseMessage_b(MessagingStates.REQ_OBIS_MESSAGE , 16)
+
+        elif getState() == MessagingStates.REQ_OBIS_MESSAGE:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            writePort_T2()
+            #input_param.req_param = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            bar = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            #commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+
+        elif getState() == MessagingStates.MESSAGING_FINALIZED:
+            terminate_comm_code()
+            messagingFinalized()
+            sendrequestserver(bar)
+            break                 
+
+def startReadObis_T3_Sequence(baud):
+
+    while 1:
+        if getState() == MessagingStates.IDLE:
+            setState(MessagingStates.TRY_TO_CONNECT_TO_DEVICE)
+
+        elif getState() == MessagingStates.TRY_TO_CONNECT_TO_DEVICE:
+            tryToConnectToDevice(baud)
+            setState(MessagingStates.RESP_BAUD_INITILIZATION)
+
+        elif getState() == MessagingStates.FAULT_STATE:
+            faultState()
+            break
+
+        elif getState() == MessagingStates.RESP_BAUD_INITILIZATION:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            commonGetResponseMessage_b(MessagingStates.REQ_OBIS_MESSAGE , 16)
+
+        elif getState() == MessagingStates.REQ_OBIS_MESSAGE:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            writePort_T3()
+            #input_param.req_param = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            bar = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            #commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+
+        elif getState() == MessagingStates.MESSAGING_FINALIZED:
+            terminate_comm_code()
+            messagingFinalized()
+            sendrequestserver(bar)
+            break        
+
+def startReadObis_T4_Sequence(baud):
+
+    while 1:
+        if getState() == MessagingStates.IDLE:
+            setState(MessagingStates.TRY_TO_CONNECT_TO_DEVICE)
+
+        elif getState() == MessagingStates.TRY_TO_CONNECT_TO_DEVICE:
+            tryToConnectToDevice(baud)
+            setState(MessagingStates.RESP_BAUD_INITILIZATION)
+
+        elif getState() == MessagingStates.FAULT_STATE:
+            faultState()
+            break
+
+        elif getState() == MessagingStates.RESP_BAUD_INITILIZATION:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            commonGetResponseMessage_b(MessagingStates.REQ_OBIS_MESSAGE , 16)
+
+        elif getState() == MessagingStates.REQ_OBIS_MESSAGE:
+            #commonSendMessage(MessageTypes.mes_1, MessagingStates.RESP_IDENTIFICATION, None)
+            writePort_T4()
+            #input_param.req_param = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            bar = commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+            #commonGetResponseMessage_b(MessagingStates.MESSAGING_FINALIZED , 24)
+
+        elif getState() == MessagingStates.MESSAGING_FINALIZED:
+            terminate_comm_code()
+            messagingFinalized()
+            sendrequestserver(bar)
+            break         

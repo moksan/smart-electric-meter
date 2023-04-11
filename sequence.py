@@ -11,9 +11,12 @@ from utilities import *
 
 def sendrequestserver(value):
 
+    bar = value[0]
+    bar_b =  ''.join(chr(i) for i in bar[7:17])
+    print(bar_b)
     deviceID = '1' # Should be string
-    url = 'http://127.0.0.1:5000/api/'+ deviceID
-    myobj = {'consumption': 'value'} # 250 sayisi yerine okudugun kwh degerini gir
+    url = 'http://www.kulturatakplatform.com/api/'+ deviceID
+    myobj = {'consumption': bar_b} # 250 sayisi yerine okudugun kwh degerini gir
     requests.post(url, json = myobj)
 
 
@@ -48,7 +51,7 @@ def commonSendMessage(messageType, obis_code ,nextMessageState, _callback = None
     #If it needs to change, use callback function
     if _callback:
         messageClass = _callback(messageClass)
-    writePort(obis_code)
+    #writePort(obis_code)
     setState(nextMessageState)
 
 def commonGetResponseMessage_a(nextMessageState):
